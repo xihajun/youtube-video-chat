@@ -51,7 +51,7 @@ async function handleApiRequest(apiType, apiKey, apiModel, inputText) {
         apiBody = JSON.stringify({
             "model": apiModel, // Replace with your model
             "prompt": systemMessage + `\n\nHuman: ${inputText}\n\nAssistant:\n`,
-            "max_tokens_to_sample": 100
+            "max_tokens_to_sample": 2000
         });
     }
 
