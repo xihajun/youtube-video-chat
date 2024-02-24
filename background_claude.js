@@ -30,6 +30,7 @@ chrome.runtime.onMessage.addListener(function (request) {
 
 async function handleApiRequest(apiType, apiKey, inputText) {
     let apiUrl, apiHeaders, apiBody;
+    console.log(inputText)
 
     if (apiType === 'openai') {
         apiUrl = 'https://api.openai.com/v1/chat/completions';
@@ -82,7 +83,7 @@ chrome.runtime.onMessage.addListener(async function (request) {
 
         // get the API model from local storage
         let apiModel = await new Promise(resolve => chrome.storage.local.get(['apiModel'], result => resolve(result.apiModel)));
-
+        console.log("Full texts:\n",request.input)
         // Add the user's message to the message array
         messageArray.push({ role: "user", "content": request.input });
 
