@@ -51,7 +51,7 @@ async function handleApiRequest(apiType, apiKey, inputText) {
         apiBody = JSON.stringify({
             "model": "claude-2", // Replace with your model
             "prompt": `\n\nHuman: ${inputText}\n\nAssistant:\n`,
-            "max_tokens_to_sample": 100
+            "max_tokens_to_sample": 20480
         });
     }
 
@@ -99,7 +99,7 @@ chrome.runtime.onMessage.addListener(async function (request) {
                 body: JSON.stringify({
                     "model": apiModel,
                     "prompt": `\n\nHuman: ${request.input}\n\nAssistant:\n`,
-                    "max_tokens_to_sample": 100
+                    "max_tokens_to_sample": 20480
                 })
             });
             console.log("response: ", response);
